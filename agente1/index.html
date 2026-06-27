@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Apex Motors — Concesionaria de automóviles premium en Venado Tuerto, Santa Fe. Encontrá el vehículo que define tu camino.">
+    <title>Apex Motors | Concesionaria Premium — Venado Tuerto</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header id="header" class="header">
+        <nav class="nav container">
+            <!-- Logo -->
+            <a href="#inicio" class="nav__logo" id="logo">
+                <span class="logo-apex">APEX</span><span class="logo-motors">MOTORS</span>
+            </a>
+
+            <!-- Menú de navegación -->
+            <ul class="nav__menu" id="nav-menu">
+                <li><a href="#inicio" class="nav__link" id="nav-inicio">Inicio</a></li>
+                <li><a href="#nosotros" class="nav__link" id="nav-nosotros">Nosotros</a></li>
+                <li><a href="#modelos" class="nav__link" id="nav-modelos">Modelos</a></li>
+                <li><a href="#resenas" class="nav__link" id="nav-resenas">Reseñas</a></li>
+                <li><a href="#contacto" class="nav__link nav__link--cta" id="nav-contacto">Contacto</a></li>
+            </ul>
+
+            <!-- Botón hamburguesa -->
+            <button class="nav__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+                <span class="hamburger__line"></span>
+                <span class="hamburger__line"></span>
+                <span class="hamburger__line"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="inicio">
+        <!-- Formas decorativas CSS -->
+        <div class="hero__shape hero__shape--1"></div>
+        <div class="hero__shape hero__shape--2"></div>
+        <div class="hero__shape hero__shape--3"></div>
+        <div class="hero__particles" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="hero__content container">
+            <div class="hero__badge">
+                <i class="fa-solid fa-flag-checkered"></i>
+                Concesionaria N°1 en Santa Fe
+            </div>
+            <h1 class="hero__title">
+                Encontrá el vehículo<br>
+                <span class="hero__title--accent">que define tu camino</span>
+            </h1>
+            <p class="hero__subtitle">
+                En Apex Motors combinamos tecnología de punta, transparencia total y una atención personalizada que convierte cada compra en una experiencia única. Tu próximo vehículo te está esperando.
+            </p>
+            <div class="hero__actions">
+                <a href="#modelos" class="btn btn--primary" id="hero-cta-primary">
+                    <i class="fa-solid fa-car"></i>
+                    Ver Modelos
+                </a>
+                <a href="#contacto" class="btn btn--secondary" id="hero-cta-secondary">
+                    <i class="fa-solid fa-headset"></i>
+                    Contactar Asesor
+                </a>
+            </div>
+            <!-- Stats -->
+            <div class="hero__stats">
+                <div class="stat">
+                    <span class="stat__num">+2.400</span>
+                    <span class="stat__label">Vehículos entregados</span>
+                </div>
+                <div class="stat__divider"></div>
+                <div class="stat">
+                    <span class="stat__num">15</span>
+                    <span class="stat__label">Años de trayectoria</span>
+                </div>
+                <div class="stat__divider"></div>
+                <div class="stat">
+                    <span class="stat__num">98%</span>
+                    <span class="stat__label">Clientes satisfechos</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decoración vehículo abstracto -->
+        <div class="hero__visual" aria-hidden="true">
+            <div class="car-abstract">
+                <div class="car-body"></div>
+                <div class="car-roof"></div>
+                <div class="car-wheel car-wheel--front"></div>
+                <div class="car-wheel car-wheel--back"></div>
+                <div class="car-light car-light--front"></div>
+                <div class="car-light car-light--back"></div>
+                <div class="car-glow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SOBRE NOSOTROS ===== -->
+    <section class="about" id="nosotros">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Quiénes somos</span>
+                <h2 class="section-title">Nuestra Trayectoria</h2>
+                <p class="section-subtitle">Más de 15 años transformando la manera de comprar un auto en el sur de Santa Fe.</p>
+            </div>
+
+            <div class="about__grid">
+                <!-- Texto -->
+                <div class="about__text">
+                    <p class="about__lead">Desde 2009, Apex Motors nació con una misión clara: democratizar el acceso a vehículos de calidad sin sacrificar la transparencia ni el servicio.</p>
+                    <p>Cada cliente que entra a nuestro salón recibe atención personalizada de asesores certificados, precios sin letra chica y un proceso de compra ágil y confiable. Trabajamos con las principales marcas del mercado y ofrecemos opciones para todos los presupuestos.</p>
+                    <p>Nuestra filosofía se basa en tres pilares que nunca negociamos: <strong>honestidad, calidad e innovación</strong>. Porque cuando comprás en Apex Motors, no comprás solo un auto — comprás confianza.</p>
+                    <div class="about__features">
+                        <div class="about__feature">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>Garantía certificada</span>
+                        </div>
+                        <div class="about__feature">
+                            <i class="fa-solid fa-file-contract"></i>
+                            <span>Sin letra chica</span>
+                        </div>
+                        <div class="about__feature">
+                            <i class="fa-solid fa-user-tie"></i>
+                            <span>Asesores certificados</span>
+                        </div>
+                        <div class="about__feature">
+                            <i class="fa-solid fa-medal"></i>
+                            <span>Premio calidad 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Elemento visual CSS -->
+                <div class="about__visual">
+                    <div class="about__card-visual">
+                        <div class="visual-ring visual-ring--1"></div>
+                        <div class="visual-ring visual-ring--2"></div>
+                        <div class="visual-ring visual-ring--3"></div>
+                        <div class="visual-center">
+                            <i class="fa-solid fa-car-side"></i>
+                            <span>Apex Motors</span>
+                            <small>Est. 2009</small>
+                        </div>
+                    </div>
+                    <div class="about__badge-float">
+                        <i class="fa-solid fa-trophy"></i>
+                        <div>
+                            <strong>Mejor Concesionaria</strong>
+                            <span>Santa Fe 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICIOS ===== -->
+    <section class="services" id="modelos">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Lo que ofrecemos</span>
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <p class="section-subtitle">Soluciones integrales diseñadas para que tu experiencia sea perfecta de principio a fin.</p>
+            </div>
+
+            <div class="services__grid">
+
+                <!-- Tarjeta 1 -->
+                <article class="service-card" id="servicio-venta">
+                    <div class="service-card__icon">
+                        <i class="fa-solid fa-car-side"></i>
+                    </div>
+                    <h3 class="service-card__title">Venta 0km y Usados Seleccionados</h3>
+                    <p class="service-card__desc">Amplio stock de vehículos nuevos de las mejores marcas y usados inspeccionados con hasta 150 puntos de control. Cada unidad con garantía y respaldo documental completo.</p>
+                    <a href="#contacto" class="service-card__link" id="link-servicio-venta">Consultar stock <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+
+                <!-- Tarjeta 2 -->
+                <article class="service-card" id="servicio-financiacion">
+                    <div class="service-card__icon">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                    </div>
+                    <h3 class="service-card__title">Financiación a Medida</h3>
+                    <p class="service-card__desc">Planes personalizados con cuotas fijas, tasas competitivas y aprobación express en menos de 24 horas. Trabajamos con los principales bancos y financieras del país.</p>
+                    <a href="#contacto" class="service-card__link" id="link-servicio-financiacion">Simulá tu crédito <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+
+                <!-- Tarjeta 3 -->
+                <article class="service-card" id="servicio-tecnico">
+                    <div class="service-card__icon">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h3 class="service-card__title">Servicio Técnico Post-venta</h3>
+                    <p class="service-card__desc">Taller propio con mecánicos certificados, repuestos originales y turnos online. Mantenemos tu vehículo en condiciones óptimas con transparencia total en cada presupuesto.</p>
+                    <a href="#contacto" class="service-card__link" id="link-servicio-tecnico">Pedí tu turno <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+
+                <!-- Tarjeta 4 -->
+                <article class="service-card" id="servicio-testdrive">
+                    <div class="service-card__icon">
+                        <i class="fa-solid fa-road"></i>
+                    </div>
+                    <h3 class="service-card__title">Test Drive Exclusivo</h3>
+                    <p class="service-card__desc">Probá el vehículo que te interesa antes de decidir. Nuestros asesores te acompañan en una experiencia de manejo guiada, sin presión y con toda la información que necesitás.</p>
+                    <a href="#contacto" class="service-card__link" id="link-servicio-testdrive">Reservá tu test drive <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIOS ===== -->
+    <section class="testimonials" id="resenas">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Lo que dicen de nosotros</span>
+                <h2 class="section-title">Experiencias de nuestros clientes</h2>
+                <p class="section-subtitle">La satisfacción de quienes confiaron en Apex Motors es nuestro mayor orgullo.</p>
+            </div>
+
+            <div class="testimonials__grid">
+
+                <!-- Testimonio 1 -->
+                <article class="testimonial-card" id="testimonio-1">
+                    <div class="testimonial-card__quote"><i class="fa-solid fa-quote-left"></i></div>
+                    <p class="testimonial-card__text">"El proceso de compra fue increíblemente sencillo. Me asesoraron sin presionarme, me explicaron todas las opciones de financiación y en menos de una semana ya tenía el auto en mi casa. ¡Imposible pedir más!"</p>
+                    <div class="testimonial-card__stars" aria-label="5 estrellas">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="testimonial-card__author">
+                        <div class="author__avatar">MG</div>
+                        <div class="author__info">
+                            <strong>Martín González</strong>
+                            <span>Vehículo: Toyota Corolla Cross 2024</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Testimonio 2 -->
+                <article class="testimonial-card testimonial-card--featured" id="testimonio-2">
+                    <div class="testimonial-card__quote"><i class="fa-solid fa-quote-left"></i></div>
+                    <p class="testimonial-card__text">"Fui con muchas dudas porque era mi primer auto 0km. El equipo de Apex Motors me hizo sentir segura desde el primer momento. La transparencia en los precios y el servicio post-venta son de otro nivel."</p>
+                    <div class="testimonial-card__stars" aria-label="5 estrellas">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="testimonial-card__author">
+                        <div class="author__avatar">LR</div>
+                        <div class="author__info">
+                            <strong>Laura Ramos</strong>
+                            <span>Vehículo: Volkswagen T-Cross Highline</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Testimonio 3 -->
+                <article class="testimonial-card" id="testimonio-3">
+                    <div class="testimonial-card__quote"><i class="fa-solid fa-quote-left"></i></div>
+                    <p class="testimonial-card__text">"Ya van tres autos que les compro y siempre la misma calidad de atención. El servicio técnico es impecable y los precios son justos. En Venado Tuerto, Apex Motors no tiene competencia."</p>
+                    <div class="testimonial-card__stars" aria-label="5 estrellas">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="testimonial-card__author">
+                        <div class="author__avatar">CF</div>
+                        <div class="author__info">
+                            <strong>Carlos Ferreyra</strong>
+                            <span>Vehículo: Ford Ranger XLT 4x4</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Hablemos</span>
+                <h2 class="section-title">Iniciá tu motor. Contactanos.</h2>
+                <p class="section-subtitle">Completá el formulario y un asesor se comunicará con vos en menos de 2 horas hábiles.</p>
+            </div>
+
+            <div class="contact__wrapper">
+                <!-- Info de contacto -->
+                <div class="contact__info">
+                    <div class="contact__info-item">
+                        <div class="contact__info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <strong>Dirección</strong>
+                            <span>Av. San Martín 1250, Venado Tuerto,<br>Provincia de Santa Fe</span>
+                        </div>
+                    </div>
+                    <div class="contact__info-item">
+                        <div class="contact__info-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div>
+                            <strong>Email</strong>
+                            <span>consultas.apexmotors@gmail.com</span>
+                        </div>
+                    </div>
+                    <div class="contact__info-item">
+                        <div class="contact__info-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <strong>Teléfono</strong>
+                            <span>(03462) 47-0000</span>
+                        </div>
+                    </div>
+                    <div class="contact__info-item">
+                        <div class="contact__info-icon"><i class="fa-solid fa-clock"></i></div>
+                        <div>
+                            <strong>Horario de atención</strong>
+                            <span>Lun–Vie: 9:00 a 18:00<br>Sáb: 9:00 a 13:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario -->
+                <form class="contact__form" id="contact-form" novalidate>
+                    <div id="form-success" class="form-success" aria-live="polite" hidden>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <div>
+                            <strong>¡Consulta enviada con éxito!</strong>
+                            <p>Un asesor se contactará con vos en breve. ¡Gracias por confiar en Apex Motors!</p>
+                        </div>
+                    </div>
+
+                    <div class="form__group">
+                        <label for="nombre" class="form__label">Nombre completo</label>
+                        <input type="text" id="nombre" name="nombre" class="form__input" placeholder="Ej: María González" autocomplete="name">
+                        <span class="form__error" id="error-nombre"></span>
+                    </div>
+
+                    <div class="form__group">
+                        <label for="email" class="form__label">Correo electrónico</label>
+                        <input type="email" id="email" name="email" class="form__input" placeholder="tu@email.com" autocomplete="email">
+                        <span class="form__error" id="error-email"></span>
+                    </div>
+
+                    <div class="form__group">
+                        <label for="telefono" class="form__label">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" class="form__input" placeholder="Ej: +54 3462 000000" autocomplete="tel">
+                        <span class="form__error" id="error-telefono"></span>
+                    </div>
+
+                    <div class="form__group">
+                        <label for="mensaje" class="form__label">Mensaje / Vehículo de interés</label>
+                        <textarea id="mensaje" name="mensaje" class="form__input form__textarea" placeholder="Contanos qué modelo te interesa o tu consulta..." rows="5"></textarea>
+                        <span class="form__error" id="error-mensaje"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary btn--full" id="btn-submit">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Enviar Consulta
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <!-- Logo y descripción -->
+                <div class="footer__brand">
+                    <a href="#inicio" class="nav__logo">
+                        <span class="logo-apex">APEX</span><span class="logo-motors">MOTORS</span>
+                    </a>
+                    <p>La concesionaria premium de Venado Tuerto. Profesionalismo, transparencia e innovación en cada kilómetro.</p>
+                    <div class="footer__social">
+                        <a href="#" class="social-link" id="footer-instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-link" id="footer-facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" id="footer-linkedin" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Navegación -->
+                <div class="footer__nav">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#modelos">Servicios</a></li>
+                        <li><a href="#resenas">Reseñas</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Servicios -->
+                <div class="footer__nav">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#modelos">Venta 0km</a></li>
+                        <li><a href="#modelos">Usados Seleccionados</a></li>
+                        <li><a href="#modelos">Financiación</a></li>
+                        <li><a href="#modelos">Servicio Técnico</a></li>
+                        <li><a href="#modelos">Test Drive</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacto -->
+                <div class="footer__contact">
+                    <h4>Contacto</h4>
+                    <p><i class="fa-solid fa-location-dot"></i> Av. San Martín 1250, Venado Tuerto, Santa Fe</p>
+                    <p><i class="fa-solid fa-envelope"></i> consultas.apexmotors@gmail.com</p>
+                    <p><i class="fa-solid fa-phone"></i> (03462) 47-0000</p>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>&copy; <span id="current-year"></span> Apex Motors. Todos los derechos reservados.</p>
+                <p>Venado Tuerto, Provincia de Santa Fe, Argentina.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>
