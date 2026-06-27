@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prompt de sistema utilizado para generar la Landing Page de Apex Motors con un agente de IA.">
+    <title>Prompt del Agente — Apex Motors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #f5f5f4;
+            --surface: #ffffff;
+            --border: #e2e0dd;
+            --text: #1c1917;
+            --text-muted: #78716c;
+            --tag-bg: #e7e5e4;
+            --tag-text: #44403c;
+            --accent: #3b82f6;
+            --accent-light: #eff6ff;
+            --mono-bg: #fafaf9;
+            --section-colors: #6366f1, #0891b2, #059669, #d97706, #dc2626, #7c3aed, #0f766e;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* HEADER */
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .back-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover { color: var(--text); }
+
+        .header-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .header-badge {
+            font-size: 11px;
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            padding: 3px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.03em;
+        }
+
+        /* MAIN LAYOUT */
+        main {
+            max-width: 860px;
+            margin: 40px auto;
+            padding: 0 24px 80px;
+        }
+
+        /* META INFO */
+        .meta-block {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 32px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .meta-block h1 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .meta-block p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .meta-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 11px;
+            font-family: 'JetBrains Mono', monospace;
+            padding: 4px 10px;
+            border-radius: 4px;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            border: 1px solid var(--border);
+        }
+
+        /* SECTIONS */
+        .section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border);
+            background: var(--mono-bg);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .section-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+            min-width: fit-content;
+        }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-muted);
+            flex: 1;
+        }
+
+        .section-body {
+            padding: 20px 24px;
+        }
+
+        .section-body p {
+            color: var(--text);
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .section-body p:last-child { margin-bottom: 0; }
+
+        /* LISTAS */
+        ul.prompt-list {
+            list-style: none;
+            margin-top: 8px;
+        }
+
+        ul.prompt-list li {
+            font-size: 14px;
+            color: var(--text);
+            padding: 6px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        ul.prompt-list li:last-child { border-bottom: none; }
+
+        ul.prompt-list li::before {
+            content: "—";
+            color: var(--text-muted);
+            font-size: 12px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* SUBSECCIONES */
+        .subsection {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px dashed var(--border);
+        }
+
+        .subsection-title {
+            font-size: 12px;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+        }
+
+        .subsection-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+            flex-shrink: 0;
+        }
+
+        /* ARCHIVO FILE STRUCTURE */
+        .file-list {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 4px;
+        }
+
+        .file-chip {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            background: var(--accent-light);
+            color: var(--accent);
+            border: 1px solid #bfdbfe;
+            padding: 5px 12px;
+            border-radius: 4px;
+        }
+
+        /* CÓDIGO */
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            background: var(--tag-bg);
+            color: #c2410c;
+            padding: 1px 5px;
+            border-radius: 3px;
+        }
+
+        /* PROHIBIDO / ALLOWED */
+        .rule-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 7px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+        }
+
+        .rule-row:last-child { border-bottom: none; }
+
+        .badge-no {
+            font-size: 10px;
+            font-weight: 700;
+            background: #fee2e2;
+            color: #b91c1c;
+            padding: 2px 7px;
+            border-radius: 3px;
+            flex-shrink: 0;
+            font-family: 'JetBrains Mono', monospace;
+            margin-top: 2px;
+        }
+
+        .badge-ok {
+            font-size: 10px;
+            font-weight: 700;
+            background: #dcfce7;
+            color: #15803d;
+            padding: 2px 7px;
+            border-radius: 3px;
+            flex-shrink: 0;
+            font-family: 'JetBrains Mono', monospace;
+            margin-top: 2px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 24px;
+            font-size: 12px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        @media (max-width: 600px) {
+            main { padding: 0 16px 60px; }
+            .section-body { padding: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-left">
+        <a href="index.html" class="back-link">← Volver</a>
+        <span style="color:var(--border)">|</span>
+        <span class="header-title">promt.html</span>
+    </div>
+    <span class="header-badge">SYSTEM PROMPT</span>
+</header>
+
+<main>
+
+    <!-- META -->
+    <div class="meta-block">
+        <div>
+            <h1>Prompt del Agente de IA</h1>
+            <p>Instrucciones usadas para generar la Landing Page de Apex Motors de forma autónoma.</p>
+        </div>
+        <div class="meta-tags">
+            <span class="tag">HTML5 · CSS3 · JS</span>
+            <span class="tag">Agente autónomo</span>
+            <span class="tag">es-AR</span>
+        </div>
+    </div>
+
+    <!-- IDENTITY -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">&lt;identity&gt;</span>
+            <span class="section-title">Rol del agente</span>
+        </div>
+        <div class="section-body">
+            <p>Actuá como un <strong>Desarrollador Frontend Senior, Diseñador UX/UI y Arquitecto de Software</strong> con amplia experiencia en sitios corporativos modernos y optimización de conversiones.</p>
+            <p>Trabajá de forma completamente autónoma: tomá todas las decisiones de diseño, estructura y contenido sin pedir aclaraciones. Tu código debe ser robusto, listo para producción y libre de errores en la primera ejecución.</p>
+        </div>
+    </div>
+
+    <!-- CONTEXT -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">&lt;context&gt;</span>
+            <span class="section-title">Contexto del proyecto</span>
+        </div>
+        <div class="section-body">
+            <p>La Landing Page pertenece a <strong>"Apex Motors"</strong>, una concesionaria de automóviles de vanguardia ubicada en <strong>Venado Tuerto, Santa Fe</strong>. Este es un proyecto avanzado de desarrollo de software que exige la máxima calidad técnica.</p>
+            <p>La imagen de la concesionaria debe transmitir profesionalismo, transparencia, innovación y dinamismo (con una estética y precisión inspiradas sutilmente en el automovilismo internacional de alta competencia, transmitiendo velocidad y tecnología).</p>
+            <p>Tono de escritura: persuasivo, profesional y cercano, redactado en <strong>español neutro de Argentina</strong>.</p>
+        </div>
+    </div>
+
+    <!-- OBJECTIVE -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">&lt;objective&gt;</span>
+            <span class="section-title">Objetivo</span>
+        </div>
+        <div class="section-body">
+            <p>Construir una <strong>Landing Page completa, funcional y con un diseño premium</strong> para la venta de automóviles. El resultado debe lucir como un producto final de una agencia de diseño web, preparado para convertir visitantes en clientes.</p>
+        </div>
+    </div>
+
+    <!-- TECHNICAL REQUIREMENTS -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">&lt;technical_requirements&gt;</span>
+            <span class="section-title">Requisitos técnicos</span>
+        </div>
+        <div class="section-body">
+            <div class="rule-row">
+                <span class="badge-ok">USO</span>
+                <span>HTML5 semántico, CSS3 y JavaScript Vanilla puro</span>
+            </div>
+            <div class="rule-row">
+                <span class="badge-no">NO</span>
+                <span>Bootstrap, Tailwind, React, Vue o cualquier framework/librería externa</span>
+            </div>
+            <div class="rule-row">
+                <span class="badge-ok">OK</span>
+                <span>Fuentes desde Google Fonts (ej. Montserrat, Roboto) e íconos vía CDN (ej. FontAwesome)</span>
+            </div>
+            <div class="rule-row">
+                <span class="badge-ok">OK</span>
+                <span>Diseño Responsive Mobile-First con Flexbox/CSS Grid y media queries</span>
+            </div>
+            <div class="rule-row">
+                <span class="badge-ok">OK</span>
+                <span>Código limpio, modular, bien indentado y comentado en español</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- FILE STRUCTURE -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">&lt;file_structure&gt;</span>
+            <span class="section-title">Archivos a generar</span>
+        </div>
+        <div class="section-body">
+            <p style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">Generar exclusivamente estos tres archivos, vinculados correctamente entre sí:</p>
+            <div class="file-list">
+                <span class="file-chip">index.html</span>
+                <span class="file-chip">styles.css</span>
+                <span class="file-chip">script.js</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- LANDING STRUCTURE -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">&lt;landing_structure&gt;</span>
+            <span class="section-title">Estructura de la Landing Page</span>
+        </div>
+        <div class="section-body">
+
+            <div class="subsection" style="margin-top:0; padding-top:0; border-top:none;">
+                <div class="subsection-title">1. Header (Cabecera)</div>
+                <ul class="prompt-list">
+                    <li>Menú de navegación fijo (sticky) en la parte superior</li>
+                    <li>Logo tipográfico "Apex Motors" alineado a la izquierda</li>
+                    <li>Enlaces con anclas a: Inicio, Nosotros, Modelos, Reseñas, Contacto</li>
+                    <li>En dispositivos móviles: menú hamburguesa 100% funcional con JS (animación suave)</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">2. Hero Section (Sección Principal)</div>
+                <ul class="prompt-list">
+                    <li>Título principal impactante (ej. "Encontrá el vehículo que define tu camino")</li>
+                    <li>Subtítulo persuasivo destacando calidad y servicio</li>
+                    <li>Botón CTA principal: <code>"Ver Modelos"</code> (scroll suave a servicios)</li>
+                    <li>Botón secundario: <code>"Contactar Asesor"</code> (scroll suave al formulario)</li>
+                    <li>Fondo con gradientes modernos, formas abstractas oscuras y color de acento vibrante (rojo o azul eléctrico)</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">3. Sobre Nosotros</div>
+                <ul class="prompt-list">
+                    <li>Título: <code>"Nuestra Trayectoria"</code></li>
+                    <li>Texto sobre el compromiso con transparencia, atención personalizada y calidad</li>
+                    <li>Diseño en dos columnas (texto + elemento visual)</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">4. Servicios y Características</div>
+                <ul class="prompt-list">
+                    <li>Título: <code>"Nuestros Servicios"</code></li>
+                    <li>4 tarjetas modernas con: ícono, título, descripción breve, hover elegante y sombras</li>
+                    <li>a) Venta de 0km y Usados Seleccionados</li>
+                    <li>b) Financiación a Medida</li>
+                    <li>c) Servicio Técnico Post-venta</li>
+                    <li>d) Test Drive Exclusivo</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">5. Testimonios (Reseñas)</div>
+                <ul class="prompt-list">
+                    <li>Título: <code>"Experiencias de nuestros clientes"</code></li>
+                    <li>3 testimonios ficticios de compradores satisfechos</li>
+                    <li>Cada tarjeta: reseña, nombre del cliente, vehículo adquirido y ★★★★★</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">6. Formulario de Contacto</div>
+                <ul class="prompt-list">
+                    <li>Título: <code>"Iniciá tu motor. Contactanos."</code></li>
+                    <li>Campos: Nombre completo, Correo electrónico, Teléfono, Mensaje/Vehículo de interés</li>
+                    <li>Botón <code>"Enviar Consulta"</code></li>
+                    <li>Validación JS del lado del cliente (campos vacíos, formato de email) + mensaje de éxito visual. <em>Sin backend real.</em></li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">7. Pie de Página (Footer)</div>
+                <ul class="prompt-list">
+                    <li>Nombre de la concesionaria y dirección (Venado Tuerto, Provincia de Santa Fe)</li>
+                    <li>Correo de contacto: <code>consultas.apexmotors@gmail.com</code></li>
+                    <li>Enlaces ficticios a redes sociales: Instagram, Facebook, LinkedIn</li>
+                    <li>Copyright con año dinámico vía JS</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- DESIGN GUIDELINES -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">&lt;design_guidelines&gt;</span>
+            <span class="section-title">Guías de diseño</span>
+        </div>
+        <div class="section-body">
+            <ul class="prompt-list">
+                <li>Paleta: fondos oscuros elegantes (negro/gris grafito) o blancos limpios, con acento llamativo y moderno</li>
+                <li>Sombras suaves (<code>box-shadow</code>) y bordes redondeados (<code>border-radius</code>) — efecto glassmorphism opcional pero recomendado</li>
+                <li>Transiciones CSS suaves en botones y enlaces</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- AGENT INSTRUCTIONS -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-tag">&lt;agent_instructions&gt;</span>
+            <span class="section-title">Instrucciones finales al agente</span>
+        </div>
+        <div class="section-body">
+            <ul class="prompt-list">
+                <li>Generar TODO el código de principio a fin. Sin partes incompletas ni comentarios como "agrega tu código aquí"</li>
+                <li>Entregar bloques de código completos para <code>index.html</code>, <code>styles.css</code> y <code>script.js</code></li>
+                <li>La página debe poder abrirse directamente en el navegador y verse perfecta sin intervención humana</li>
+            </ul>
+        </div>
+    </div>
+
+</main>
+
+<footer>
+    promt.html — PFO2 · Apex Motors · <span id="year"></span>
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
